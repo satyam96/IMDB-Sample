@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add new actor</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<div class="container header">
+		<br>
+		<div class="row">
+			<div class="col-sm-4">
+				<h3>IMDB</h3>
+			</div>
+			<div class="col-sm-8">
+				<a href="{{ url_for('movies') }}"><button class="btn btn-primary btn-sm" style="width: 95px; float: right;">Movies</button></a>
+			</div>
+		</div>
+		<hr>
+	</div>
+	<div class="container">
+		<div class="panel panel-primary">
+		      <div class="panel-heading">Add new actor info</div>
+		</div>
+		<div class="col-sm-4">
+			<form role="form" method="post">
+				<div class="form-group">
+					<input type="name" class="form-control" name="actor_name" placeholder="Actor name">
+				</div>
+				<div class="form-group">
+					<select class="form-control" name="sex">
+						<option>Select Sex</option>
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+						<option value="other">Other</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<input type="date" class="form-control" name="dob" placeholder="Date of Birth">
+				</div>
+				<div class="form-group">
+					<textarea type="name" class="form-control" name="bio" placeholder="Bio"></textarea>
+				</div>
+				<br>
+				<button type="submit" class="btn btn-success" name="add_actor">Add actor</button>
+			</form>
+		</div>
+		<div class="col-sm-4">
+			
+		</div>
+		<div class="col-sm-4">
+			
+		</div>
+	</div>
+</body>
+</html>

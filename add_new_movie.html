@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add new movie</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
+</head>
+<body>
+	<div class="container header">
+		<br>
+		<div class="row">
+			<div class="col-sm-7">
+				<h3>IMDB</h3>
+			</div>
+			<div class="col-sm-5">
+				<a href="{{ url_for('movies') }}"><button class="btn btn-primary btn-sm" style="width: 95px;">Movies</button></a>
+				<a href="{{ url_for('actors') }}"><button class="btn btn-primary btn-sm" style="width: 95px;">Add actor</button></a>
+				<a href="{{ url_for('producers') }}"><button class="btn btn-primary btn-sm" style="width: 95px;">Add producer</button></a>
+			</div>
+		</div>
+		<hr>
+	</div>
+	<div class="container">
+		<div class="panel panel-primary">
+		      <div class="panel-heading">Add Movie info</div>
+		</div>
+		<div class="col-sm-4">
+			<form role="form" method="post">
+				<div class="form-group">
+					<input type="name" class="form-control" name="movie_name" placeholder="Movie name">
+				</div>
+				<div class="form-group">
+					<input type="number" class="form-control" name="year_of_release" placeholder="Year of Release">
+				</div>
+				<div class="form-group">
+					<input type="name" class="form-control" name="poster" placeholder="Poster">
+				</div>
+				<div class="form-group">
+					<textarea type="name" class="form-control" name="plot" placeholder="Plot"></textarea>
+				</div>
+				<div class="form-group">
+					<label>Actors</label>
+					<select data-style="btn-default" name="actors[]" class="selectpicker form-control" multiple>
+						{% for a in act %}
+							<option value="{{a.name}}">{{ a.name }}</option>
+						{% endfor %}
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Producers</label>
+					<select class="form-control" name="prod">
+						<option>Select producer</option>
+						{% for p in prod %}
+							<option value="{{p.name}}">{{ p.name }}</option>
+						{% endfor %}
+					</select>
+				</div>
+				
+					<button type="submit" class="btn btn-primary" name="add_movie">Add movie</button>
+			</form>
+		</div>
+		<div class="col-sm-4">
+			
+		</div>
+		<div class="col-sm-4">
+			
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movies Info</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
+</head>
+<body>
+	<div class="container header">
+		<br>
+		<div class="row">
+			<div class="col-sm-4">
+				<h3>IMDB</h3>
+			</div>
+			<div class="col-sm-8">
+				<a href="{{ url_for('add_new_movie') }}"><button class="btn btn-primary" style="float: right;">Add Movie</button></a>
+			</div>
+		</div>
+		<hr>
+	</div>
+	<div class="container">
+		<div class="panel panel-success">
+		      <div class="panel-heading">Available movies</div>
+		</div>
+		{% for m in movies %}
+			<div class="col-sm-3" style="border: 1px solid #aaa; border-radius: 5px; margin: 10px; padding: 25px; box-shadow: 0 0 10px rgba(0,0,0,0.6)">
+				<h3 style="background: #003355; margin: 0px; padding: 20px; color: #fff; text-align: center;">{{m.name}}</h3>
+				<h6 style="float: right; color: #aaa;">{{m.year_of_release}}</h6>
+				<br>
+				<p><strong>Actors</strong>: {{m.actors}}</p>
+				<p><strong>Producers</strong>: {{m.producer}}</p>
+			</div>
+		{% endfor %}
+	</div>
+</body>
+</html>
